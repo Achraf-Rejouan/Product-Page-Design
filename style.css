@@ -1,10 +1,11 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
-.container{
+
+.container {
     width: 100%;
     min-height: 100vh;
     background: #d0eaff;
@@ -12,66 +13,191 @@
     align-items: center;
     justify-content: center;
 }
-.product{
+
+.product {
     width: 90%;
     max-width: 750px;
     display: flex;
 }
-.gallery{
+
+.gallery {
+    width: max-content;
+    position: relative;
+    --zoom-x: 50%;
+    --zoom-y: 50%;
+    --zoom-show: none;
     flex-basis: 47%;
     background: #241e20;
-    transform: scale(1.08);
-    box-shadow: -10px 5px 10px 10px rgba(0,0,0,0.1);
+    transform: scale(1.06);
+    box-shadow: -10px 5px 10px 10px rgba(0, 0, 0, 0.1);
 }
-.gallery img{
+
+.gallery img:nth-chiLd(2) {
+    pointer-events: none;
+    clip-path: circle(50px at var(--zoom-x) var(--zoom-y));
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: scale(1.5);
+}
+
+.gallery img {
     width: 100%;
     display: block;
     padding-top: 100px;
 }
-.details{
+
+.details {
     flex-basis: 53%;
     background: #fff;
     padding: 40px;
     padding-left: 60px;
     box-shadow: -10px 5px 10px 10px rgba(0, 0, 0, 0.1);
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 500;
     color: #777;
 }
-.details h1{
+
+.details h1 {
     color: #333;
     font-size: 35px;
 }
-.details h2{
+
+.details h2 {
     color: #555;
     font-size: 30px;
     font-weight: 600;
 }
-.details h3{
+
+.details h3 {
     color: #09ad81;
     margin-bottom: 20px;
 }
-.details form{
-    font-size: 15px;
-    font-weight: 400;
+
+.details form {
+    font-size: 14px;
+    font-weight: 500;
 }
-.size-select{
+
+.size-select {
     display: flex;
     align-items: center;
     margin-top: 50px;
 }
-.size-select p{
+
+.size-select p {
     width: 70px;
 }
-.size-select input:checked + span {
-    color: #0c0cf6ef ;
+
+.size-select input:checked+span {
+    color: #0c0cf6ef;
     font-weight: 600;
 }
-.size-select input{
+
+.size-select input,
+.color-select input {
     display: none;
 }
+
 .size-select span {
     padding: 5px;
     margin-right: 10px;
     cursor: pointer;
+}
+
+.color-select {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.color-select p {
+    width: 75px;
+}
+
+.color-select span {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.color-1 {
+    background: red;
+}
+
+.color-2 {
+    background: green;
+}
+
+.color-3 {
+    background: blue;
+}
+
+.color-4 {
+    background: pink;
+}
+
+.color-select input:checked+span {
+    transform: scale(0.7);
+    box-shadow: 0 0 0 4px #fff, 0 0 0 6px #000;
+}
+
+.quantity-select {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.quantity-select p {
+    width: 75px;
+}
+
+.quantity-select input {
+    background: #eee;
+    border: 0;
+    outline: 0;
+    padding: 2px 2px 2px 15px;
+    width: 50px;
+    border-radius: 12px;
+}
+
+form :not(button) {
+    margin-top: 3px;
+}
+
+form button {
+    background: #553ff0;
+    color: #fff;
+    font-size: 17px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 30px;
+    border: 0;
+    outline: 0;
+    margin-top: 60px;
+    box-shadow: 0 10px 10px rgba(83, 63, 240, 0.25);
+    cursor: pointer;
+}
+
+.controls {
+    position: absolute;
+    bottom: 40px;
+    right: 20px;
+}
+
+.controls .btn {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ffffff80;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.btn.active {
+    background: #553ff0;
 }
